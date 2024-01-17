@@ -24,8 +24,8 @@ class FilmWorkSerializer(serializers.ModelSerializer):
 
     def get_directors(self, obj):
         # Возвращает список идентификаторов режиссеров для фильма
-        return list(obj.persons.filter(personfilmwork__role=PersonRoleType.DIRECTOR.value).values_list('id', flat=True))
+        return obj.persons.filter(personfilmwork__role=PersonRoleType.DIRECTOR.value).values_list('id', flat=True)
 
     def get_writers(self, obj):
         # Возвращает список идентификаторов сценаристов для фильма
-        return list(obj.persons.filter(personfilmwork__role=PersonRoleType.WRITER.value).values_list('id', flat=True))
+        return obj.persons.filter(personfilmwork__role=PersonRoleType.WRITER.value).values_list('id', flat=True)
