@@ -4,18 +4,6 @@ from movies.models import FilmWork, Person, Genre
 from movies.models import PersonRoleType
 
 
-class PersonSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Person
-        fields = '__all__'
-
-
-class GenreSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Genre
-        fields = '__all__'
-
-
 class FilmWorkSerializer(serializers.ModelSerializer):
     genres = serializers.SlugRelatedField(
         many=True,
