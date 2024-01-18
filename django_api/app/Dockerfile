@@ -17,7 +17,7 @@ ENV POETRY_VERSION=1.6.1 \
 
 # System dependencies and cleanup
 RUN apt-get update -q && \
-    apt-get install -q --no-install-recommends -y build-essential gettext libpq-dev wget && \
+    apt-get install -q --no-install-recommends -y build-essential gettext libpq-dev wget netcat && \
     apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* && \
     pip install "poetry-core==1.7.0" "poetry==$POETRY_VERSION" && poetry --version
 
